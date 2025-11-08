@@ -104,25 +104,103 @@ body{
 .prompts-list{display:flex; flex-direction:column; gap:12px}
 
 .prompt-card{
-  display:flex; align-items:flex-start; justify-content:space-between;
+  display:flex;
+  flex-direction:column;
   gap:12px;
-  padding:12px;
-  border-radius:10px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  padding:16px;
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
   border:1px solid var(--glass);
   box-shadow: var(--card-shadow);
 }
-.prompt-left{display:flex; gap:12px; align-items:flex-start}
+.prompt-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.prompt-left{display:flex; gap:12px; align-items:center}
 .badge{
   min-width:44px; height:44px; border-radius:10px; display:grid; place-items:center; font-family:'Fira Code', monospace; font-weight:600; color:white;
   background:linear-gradient(135deg,var(--accent),var(--accent-2));
 }
 .prompt-info{min-width:0}
 .prompt-title{margin:0; font-weight:600; font-size:0.95rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.prompt-preview{margin:4px 0 0; color:var(--muted); font-size:0.9rem; line-height:1.3; max-width:420px; overflow:hidden; text-overflow:ellipsis}
+.prompt-preview{margin:4px 0 0; color:var(--muted); font-size:0.85rem}
+.prompt-label{
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--muted);
+}
+.prompt-text{
+  margin:0;
+  font-size:0.95rem;
+  line-height:1.5;
+  white-space:pre-wrap;
+  word-break:break-word;
+  background:rgba(255,255,255,0.02);
+  padding:12px;
+  border-radius:10px;
+  border:1px dashed rgba(255,255,255,0.05);
+}
 
-.card-actions{display:flex; gap:8px; align-items:center}
+.prompt-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.prompt-buttons{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
 .icon-btn{background:transparent; border:none; color:var(--muted); cursor:pointer; padding:6px; border-radius:8px}
 .icon-btn:hover{color:var(--text)}
 
 .app-footer{margin-top:auto; padding:18px 24px; color:var(--muted); font-size:0.9rem}
+
+@media (max-width:720px){
+  .app-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .container{
+    margin:16px auto 32px;
+    padding:0 16px 32px;
+    gap:16px;
+  }
+  .prompt-card{
+    padding:14px;
+  }
+  .prompt-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .prompt-actions{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .prompt-buttons{
+    width:100%;
+    justify-content:flex-start;
+  }
+}
+
+@media (max-width:520px){
+  .form-actions{
+    flex-direction:column;
+    width:100%;
+  }
+  .form-actions .btn{
+    width:100%;
+  }
+  .prompt-text{
+    font-size:0.9rem;
+  }
+  .prompt-buttons{
+    flex-wrap:wrap;
+  }
+}
